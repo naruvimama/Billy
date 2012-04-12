@@ -1,0 +1,40 @@
+<div class='container'>
+  <ul class='nav nav-pills'>
+    <li class="active">
+    <%= link_to "Bill", new_bill_path %>
+    </li>
+    <li>
+    <%= link_to "Products list", products_list_products_path %>
+    </li>
+    <li>
+    <%= link_to "Products management", products_path %>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <form id="bill_item_form">
+    <input type="hidden" class="item" id="item_id"></input>
+    <input type="text" id="code" placeholder="Code" class="code_autocomplete item"></input>
+    <input type="text" id="name" placeholder="Name" class="item" ></input>
+    <input type="text" id="price" placeholder="Price" class="item"></input>
+    <input type="text" id="quant" placeholder="Quantity" class="item"></input>
+    <div class="btn-group">
+      <a href="#" class="btn btn-warning" id="reset_billitem"><i class="icon-trash"></i>Reset</a>
+      <a href="#" class="btn btn-success" id="add_item_2_bill"><i class="icon-plus-sign"></i>Add</a>
+    </div>
+  </form>
+  <hr\>
+  <h2>Bill area</h2>
+  <div class="bill_section">
+    <div id="bill_area">
+      
+    </div>
+
+    <div class="btn-group">
+      <a href="" class="btn btn-warning" id="reset_bill"><i class="icon-trash"></i>Clear</a>
+      <a href="" class="btn btn-success" id="add_bill"><i class="icon-plus-sign"></i>Save</a>
+    </div>
+    <span id="total"><h2>Total : <strong></strong></h2></span>
+  </div>
+  
+

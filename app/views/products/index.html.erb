@@ -1,0 +1,43 @@
+<div class='container'>
+  <ul class='nav nav-pills'>
+    <li>
+    <%= link_to "Bill", new_bill_path %>
+    </li>
+    <li>
+    <%= link_to "Products list", products_list_products_path %>
+    </li>
+    <li class="active">
+    <%= link_to "Products management", products_path %>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <div id="new_product">
+    <form id="new_product_form">
+      <input type="text" id="p_code" placeholder="Code" class="item"></input>
+      <input type="text" id="p_name" placeholder="Name" class="item" ></input>
+      <input type="text" id="p_price" placeholder="Price" class="item"></input>
+      <input type="text" id="p_quant" placeholder="Quantity" class="item"></input>
+      <div class="btn-group">
+        <a href="" class="btn btn-warning" id="reset_new_product"><i class="icon-trash"></i>Reset</a>
+        <a href="" class="btn btn-success" id="add_to_products"><i class="icon-plus-sign"></i>Add</a>
+      </div>
+    </form>
+  </div>
+
+  <span class="span12">
+    <span class="span1">Id</span>
+    <span class="span1">Code</span>
+    <span class="span3">Name</span>
+    <span class="span1">Price</span>
+    <span class="span1">Quantity</span>
+    <span class="span1"><i class="icon-edit"></i>Edit</span>
+  </span>
+  <br/>
+  <hr></hr>
+  <div id="products_list">
+    <%= render :partial => 'product', :collection => @products %>
+
+  </div>
+</div>
+<div class="modal" id="modalEdit"></div>
