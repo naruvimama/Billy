@@ -1,17 +1,18 @@
 <div class='container'>
   <ul class='nav nav-pills'>
     <li>
-    <%= link_to "Bill", new_bill_path %>
+      <%= link_to "Bill", new_bill_path %>
     </li>
     <li class="active">
-    <%= link_to "Products list", products_list_products_path%>
+      <%= link_to "Products list", products_list_products_path%>
     </li>
     <li>
-    <%= link_to "Products management", products_path %>
+      <%= link_to "Products management", products_path %>
     </li>
   </ul>
 </div>
-<%= @products.each do |product|%>
+<div class="container">
+<% @products.each do |product|%>
   <span class="product span12">
     <span class="span2 list-code"><%=product.code%></span>
     <span class="span3 list-name"><%=product.name%></span>
@@ -19,3 +20,5 @@
     <span class="span1 list-quantity"><%=product.quantity%></span>
   </span>
 <%end%>
+</div>
+
