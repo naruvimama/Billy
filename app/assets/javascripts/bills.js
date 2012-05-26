@@ -13,7 +13,6 @@ $(document).ready( function(){
 					$('#name').val(ui.item.name);
 				},
 				change:function(event, ui){
-					console.log(ui);
 					if(ui.item){
 						$('#item_id').val(ui.item.id);
 						$('#code').val(ui.item.code);
@@ -61,10 +60,12 @@ function calculate_total(){
 }
 
 $('#add_item_2_bill').live('click', function(){
+	console.log(parseInt($('#item_id').val()));
 	if(parseInt($('#item_id').val())){
 	add_to_bill();
 	calculate_total();
 	}else{
+		console.log("Invalid item id   :", parseInt($('#item_id').val()));
 		alert('This product does not exist in the product database, please create it first.')
 	}
 });
