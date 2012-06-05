@@ -34,38 +34,11 @@ $(document).ready(function(){
 			},
 		})
 	});
- var _modal_template = _.template(' \
-		<div class="modal-header">\
-			<a class="close" data-dismiss="modal">×</a>\
-			<h3>Edit product</h3>\
-		</div>\
-		<div class="modal-body">\
-			<form id="edit_product_form" class="form-vertical">\
-				<input type="hidden" id="e_id" placeholder="Code" class="item" value=<%= id %>></input>\
-				<label>code</label>\
-				<input type="text" id="e_code" placeholder="Code" class="item" value=<%=code%>></input>\
-				<label>Name</label>\
-				<input type="text" id="e_name" placeholder="Name" class="item" value=<%=name%>></input>\
-				<label>Price</label>\
-				<input type="text" id="e_price" placeholder="Price" class="item" value=<%=price%>></input>\
-				<label>Quantity</label>\
-				<input type="text" id="e_quant" placeholder="Quantity" class="item" value=<%=quantity%>></input>\
-			</form>\
-		</div>\
-		<div class="modal-footer">\
-			<div class="btn-group">\
-				<a class="btn btn-warning" id="delete_product"><i class="icon-trash"></i>Delete</a>\
-				<a class="btn btn-success" id="update_product"><i class="icon-plus-sign"></i>Update</a>\
-			</div>\
-		</div>\
-		')
 
 	function make_modal_template(o){
-     var templ = '<div class="modal-header"><a class="close" data-dismiss="modal">×</a><h3>Edit product</h3></div><div class="modal-body"><form id="edit_product_form" class="form-vertical"><input type="hidden" id="e_id" placeholder="Code" class="item" value='+ o.id +'/>	<label>code</label>	<input type="text" id="e_code" placeholder="Code" class="item" value=' + o.code +'helllo'+ '/>	<label>Name</label><input type="text" id="e_name" placeholder="Name" class="item" value="' + o.name +'"/><label>Price</label><input type="text" id="e_price" placeholder="Price" class="item" value='+ o.price +'/>	<label>Quantity</label><input type="text" id="e_quant" placeholder="Quantity" class="item" value=' + o.quantity + '/></form>	</div><div class="modal-footer"><div class="btn-group"><a class="btn btn-warning" id="delete_product"><i class="icon-trash"></i>Delete</a><a class="btn btn-success" id="update_product"><i class="icon-plus-sign"></i>Update</a>	</div></div>';
-		 //templ = String.prototype.toUpperCase(o.name);
+     var templ = '<div class="modal-header"><a class="close" data-dismiss="modal">×</a><h3>Edit product</h3></div><div class="modal-body"><form id="edit_product_form" class="form-vertical"><input type="hidden" id="e_id" placeholder="Code" class="item" value='+ o.id +' />	<label>code</label>	<input type="text" id="e_code" placeholder="Code" class="item" value=' + o.code + ' />	<label>Name</label><input type="text" id="e_name" placeholder="Name" class="item" value="' + o.name +'" /><label>Price</label><input type="text" id="e_price" placeholder="Price" class="item" value='+ o.price +' />	<label>Quantity</label><input type="text" id="e_quant" placeholder="Quantity" class="item" value=' + o.quantity + ' /></form>	</div><div class="modal-footer"><div class="btn-group"><a class="btn btn-warning" id="delete_product"><i class="icon-trash"></i>Delete</a><a class="btn btn-success" id="update_product"><i class="icon-plus-sign"></i>Update</a>	</div></div>';
 		 return(templ);
 	}
-  console.log(make_modal_template({name:"hello world", price:10, quantity:120, code:"xxhyzzz"})); 
 	$('.list_item_edit').live('click', function(evt){
 		var product_id = $(this).attr('id');
 		$(this).parent('.product').addClass('editing');
@@ -76,7 +49,6 @@ $(document).ready(function(){
 			dataType:'json',
 			success:function(data){
 				if(data.success){
-					console.log(make_modal_template(data.product));
 					$('#modalEdit').html(make_modal_template(data.product));
 					$('#modalEdit').modal('show');
 				}
